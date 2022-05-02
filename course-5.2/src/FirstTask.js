@@ -45,6 +45,7 @@ export default class MinMax extends React.Component {
   render() {
     return (
       <div>
+        <hr />
         <input type="number" onChange={(event) => this.setMin(event)} />
         :min
         <input type="number" onChange={(event) => this.setMax(event)} />
@@ -60,6 +61,7 @@ export default class MinMax extends React.Component {
         <button type="button" onClick={(event) => this.increment(event)}>
           Жми +
         </button>
+        <hr />
       </div>
     )
   }

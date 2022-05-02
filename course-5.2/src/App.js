@@ -2,6 +2,7 @@ import './App.css'
 import StudCard from './StudCard'
 import StudCardClass from './StudCardClass'
 import MinMax from './FirstTask'
+import Shelf from './HW-3'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <StudCard text="Студент" name="Кирилл" />
       <StudCardClass />
       <MinMax MinMax={{ min: 0, max: 10 }} />
+      <Shelf />
     </div>
   )
 }
