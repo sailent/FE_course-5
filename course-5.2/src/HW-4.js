@@ -24,7 +24,11 @@ export default class ReacTimer extends React.Component {
     }
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
+  }
 
   handleStart = () => {
     this.setState({ isCounting: true })
