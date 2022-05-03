@@ -3,6 +3,7 @@ import StudCard from './StudCard'
 import StudCardClass from './StudCardClass'
 import MinMax from './FirstTask'
 import Shelf from './HW-3'
+import ReacTimer from './HW-4'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <StudCardClass />
       <MinMax MinMax={{ min: 0, max: 10 }} />
       <Shelf />
+      <ReacTimer />
     </div>
   )
 }
