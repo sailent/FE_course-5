@@ -41,7 +41,6 @@ export default class Order extends React.Component {
         },
       ],
     }
-    this.IncrementQuantityWithPrice = this.IncrementQuantityWithPrice.bind(this)
   }
 
   IncrementQuantityWithPrice(index) {
