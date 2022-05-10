@@ -5,6 +5,7 @@ import MinMax from './FirstTask'
 import Shelf from './HW-3'
 import ReacTimer from './HW-4'
 import Order from './components/Order'
+import BookCart from './components/BookCart'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Shelf />
       <ReacTimer />
       <Order />
+      <BookCart />
     </div>
   )
 }
