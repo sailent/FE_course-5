@@ -1,8 +1,8 @@
-function MinMax({ min = 1, max, current, onChange }) {
+function MinMax({ min = 0, max, current, onChange, total }) {
   // валидация инпута
   function applyCurrent(num) {
     const validNum = Math.max(min, Math.min(max, num))
-    onChange(validNum)
+    onChange(validNum, total)
   }
 
   function parseCurrentStr(e) {

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import MinMax from './MinMax'
+import Total from './Total'
 
 function booksStub() {
   return [
@@ -8,7 +9,7 @@ function booksStub() {
       title: 'Война и мир - Л.Н.Толстой',
       price: 800,
       rest: 10,
-      quantity: 1,
+      quantity: 0,
       total: 0,
     },
     {
@@ -17,7 +18,7 @@ function booksStub() {
       price: 700,
       rest: 5,
       quantity: 1,
-      total: 0,
+      total: 700,
     },
     {
       id: 3,
@@ -25,7 +26,7 @@ function booksStub() {
       price: 1000,
       rest: 2,
       quantity: 1,
-      total: 0,
+      total: 1000,
     },
     {
       id: 5,
@@ -33,7 +34,7 @@ function booksStub() {
       price: 600,
       rest: 8,
       quantity: 1,
-      total: 0,
+      total: 600,
     },
     {
       id: 4,
@@ -41,35 +42,31 @@ function booksStub() {
       price: 400,
       rest: 8,
       quantity: 1,
-      total: 0,
+      total: 400,
     },
   ]
 }
 
 export default function BookCart() {
   const [books, setBooks] = useState(booksStub())
-  const [totalPrice, setTotal] = useState(0)
 
-  const changeTotalPrice = () => {
-    setTotal(0)
-    books.forEach((book) => {
-      setTotal(totalPrice + book.total)
-    })
-  }
-
-  const setQuantity = (id, total, quantity) => {
+  const setQuantity = (id, quantity, total) => {
     setBooks(
-      books.map((book) => (book.id !== id ? book : { ...book, quantity }))
+      books.map((book) =>
+        book.id !== id
+          ? book
+          : {
+              ...book,
+              quantity,
+              total,
+            }
+      )
     )
-    setBooks(books.map((book) => (book.id !== id ? book : { ...book, total })))
-    console.log(books)
-    changeTotalPrice()
   }
 
   const removeItem = (id) => {
     setBooks(books.filter((obj) => obj.id !== id))
   }
-
   return (
     <div className="some">
       <hr />
@@ -78,7 +75,9 @@ export default function BookCart() {
         <tfoot>
           <tr>
             <th>total</th>
-            <th>{totalPrice}</th>
+            <th>
+              <Total books={books} />
+            </th>
           </tr>
         </tfoot>
         <tbody>
@@ -99,9 +98,10 @@ export default function BookCart() {
                 <MinMax
                   max={book.rest}
                   current={book.quantity}
-                  onChange={(quantity) =>
-                    setQuantity(book.id, book.price * book.quantity, quantity)
+                  onChange={(quantity, total) =>
+                    setQuantity(book.id, quantity, total)
                   }
+                  total={book.price * book.quantity}
                 />
               </td>
               <td>
