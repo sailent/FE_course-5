@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import MinMax from './MinMax'
-import Total from './Total'
 
 function booksStub() {
   return [
@@ -49,6 +48,7 @@ function booksStub() {
 
 export default function BookCart() {
   const [books, setBooks] = useState(booksStub())
+  const [reqInput, setReq] = useState()
 
   const setQuantity = (id, quantity, total) => {
     setBooks(
@@ -67,6 +67,14 @@ export default function BookCart() {
   const removeItem = (id) => {
     setBooks(books.filter((obj) => obj.id !== id))
   }
+
+  const useInputRequired = (required, e) => {
+    const val = e.target.value
+    if (required && !val) {
+      setReq('это поле обязательно')
+      e.target.style.borderColor = 'red'
+    }
+  }
   return (
     <div className="some">
       <hr />
@@ -74,9 +82,13 @@ export default function BookCart() {
       <table>
         <tfoot>
           <tr>
-            <th>total</th>
+            <th>Total:</th>
             <th>
-              <Total books={books} />
+              {books.reduce(
+                (prev, curr) => prev + curr.quantity * curr.price,
+                0
+              )}
+              $
             </th>
           </tr>
         </tfoot>
@@ -87,13 +99,12 @@ export default function BookCart() {
             <th>Price</th>
             <th>Quantity</th>
             <th>Remove</th>
-            <th>Total</th>
           </tr>
           {books.map((book, i) => (
             <tr key={book.id}>
               <td>{i + 1}</td>
               <td>{book.title}</td>
-              <td>{book.price}</td>
+              <td>{book.price}$</td>
               <td>
                 <MinMax
                   max={book.rest}
@@ -113,11 +124,12 @@ export default function BookCart() {
                   x
                 </button>
               </td>
-              <td>{book.quantity * book.price}</td>
+              <td>{book.quantity * book.price}$</td>
             </tr>
           ))}
         </tbody>
       </table>
+      <input placeholder={reqInput} onBlur={(e) => useInputRequired(true, e)} />
     </div>
   )
 }
