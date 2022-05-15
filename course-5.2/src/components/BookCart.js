@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import MinMax from './MinMax'
 
-function booksStub() {
+export function booksStub() {
   return [
     {
       id: 1,
@@ -130,6 +131,18 @@ export default function BookCart() {
         </tbody>
       </table>
       <input placeholder={reqInput} onBlur={(e) => useInputRequired(true, e)} />
+      <div className="total">
+        <h3>
+          Total amount:{' '}
+          {books.reduce((prev, curr) => prev + curr.quantity * curr.price, 0)}
+        </h3>
+        <h3>
+          Total quantity:
+          {books.reduce((prev, curr) => prev + curr.quantity, 0)}
+        </h3>
+      </div>
+      <Link to="/about">About Shop</Link>
+      <Link to="/GeneralCart">General Cart</Link>
     </div>
   )
 }
