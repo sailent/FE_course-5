@@ -1,8 +1,0 @@
-+ ajv@6.12.6
-updated 1 package and audited 1416 packages in 4.928s
-
-174 packages are looking for funding
-  run `npm fund` for details
-
-found 1 moderate severity vulnerability
-  run `npm audit fix` to fix them, or `npm audit` for details

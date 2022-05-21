@@ -7,7 +7,7 @@ import ReacTimer from './HW-4'
 import Order from './components/Order'
 import BookCart from './components/BookCart'
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <StudCard text="Студент" name="Олег" />
@@ -34,5 +34,3 @@ function App() {
 //     </>
 //   )
 // }
-
-export default App
