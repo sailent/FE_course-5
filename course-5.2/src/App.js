@@ -6,6 +6,8 @@ import Shelf from './HW-3'
 import ReacTimer from './HW-4'
 import Order from './components/Order'
 import BookCart from './components/BookCart'
+import Select from './components/Select'
+import LoginPass from './components/LoginPass'
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
       <ReacTimer />
       <Order />
       <BookCart />
+      <Select />
+      <LoginPass />
     </div>
   )
 }
