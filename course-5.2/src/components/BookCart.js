@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import MinMax from './MinMax'
+// eslint-disable-next-line no-unused-vars
+import ReqInput2 from './InputReq'
 
 export function booksStub() {
   return [
@@ -131,6 +133,7 @@ export default function BookCart() {
         </tbody>
       </table>
       <input placeholder={reqInput} onBlur={(e) => useInputRequired(true, e)} />
+      <ReqInput2 />
       <div className="total">
         <h3>
           Total amount:{' '}
