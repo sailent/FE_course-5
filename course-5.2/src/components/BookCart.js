@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import MinMax from './MinMax'
 // eslint-disable-next-line no-unused-vars
+import MinMax from './MinMax'
+import MinMaxLazy from './MinMaxLazy'
 import ReqInput2 from './InputReq'
 
 export function booksStub() {
@@ -109,7 +110,7 @@ export default function BookCart() {
               <td>{book.title}</td>
               <td>{book.price}$</td>
               <td>
-                <MinMax
+                <MinMaxLazy
                   max={book.rest}
                   current={book.quantity}
                   onChange={(quantity, total) =>
@@ -141,7 +142,7 @@ export default function BookCart() {
         </h3>
         <h3>
           Total quantity:
-          {books.reduce((prev, curr) => prev + curr.quantity, 0)}
+          {books.reduce((prev, curr) => prev + Number(curr.quantity), 0)}
         </h3>
       </div>
       <Link to="/about">About Shop</Link>
