@@ -60,14 +60,13 @@ export default function BookCart() {
         book.id !== id
           ? book
           : {
-              ...book,
-              quantity,
-              total,
-            }
+            ...book,
+            quantity,
+            total,
+          }
       )
     )
   }
-
   const removeItem = (id) => {
     setBooks(books.filter((obj) => obj.id !== id))
   }
@@ -151,12 +150,16 @@ export default function BookCart() {
   )
 }
 
+
+
+
+
 /* 
 const setquantity = (id, quantity) => {
-	const newbooks = [ ...books ];
-	const productInd = books.findIndex(book => book.id == id);
-	const newProduct = { ...books[productInd] };
-	newProduct.quantity = quantity;
-	newbooks[productInd] = newProduct;
-	setbooks(newbooks);
+  const newbooks = [ ...books ];
+  const productInd = books.findIndex(book => book.id == id);
+  const newProduct = { ...books[productInd] };
+  newProduct.quantity = quantity;
+  newbooks[productInd] = newProduct;
+  setbooks(newbooks);
 } */

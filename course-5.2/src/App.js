@@ -8,6 +8,7 @@ import Order from './components/Order'
 import BookCart from './components/BookCart'
 import Select from './components/Select'
 import LoginPass from './components/LoginPass'
+import NumberGenerator from './components/NumberGenerator'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
       <BookCart />
       <Select />
       <LoginPass />
+      <NumberGenerator />
     </div>
   )
 }
