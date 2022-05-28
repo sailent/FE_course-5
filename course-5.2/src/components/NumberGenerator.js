@@ -9,7 +9,6 @@ export default function NumberGenerator() {
   return (
     <div>
       <hr />
-      <p />
       <div className="container">
         {numbers.map((item) => (
           <NumberChecker key={item} n={item} />

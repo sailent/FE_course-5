@@ -1,12 +1,13 @@
-import React from 'react'
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
 
 export default class ReacTimer extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       count: 0,
       isCounting: false,
-    }
+    };
   }
 
   componentDidMount() {}
@@ -16,35 +17,35 @@ export default class ReacTimer extends React.Component {
       this.timer = setInterval(
         () => this.setState((prevState) => ({ count: prevState.count + 1 })),
         1000
-      )
+      );
     }
     if (this.state.isCounting === false && this.timer) {
-      clearInterval(this.timer)
-      this.timer = false
+      clearInterval(this.timer);
+      this.timer = false;
     }
   }
 
   componentWillUnmount() {
     if (this.timer) {
-      clearInterval(this.timer)
+      clearInterval(this.timer);
     }
   }
 
   handleStart = () => {
-    this.setState({ isCounting: true })
-  }
+    this.setState({ isCounting: true });
+  };
 
   handleStop = () => {
-    this.setState({ isCounting: false })
-    clearInterval(this.timer)
-    this.timer = false
-  }
+    this.setState({ isCounting: false });
+    clearInterval(this.timer);
+    this.timer = false;
+  };
 
   handleReset = () => {
-    this.setState({ count: 0 })
-    this.setState({ isCounting: false })
-    clearInterval(this.timer)
-  }
+    this.setState({ count: 0 });
+    this.setState({ isCounting: false });
+    clearInterval(this.timer);
+  };
 
   render() {
     return (
@@ -65,6 +66,6 @@ export default class ReacTimer extends React.Component {
         </button>
         <hr />
       </div>
-    )
+    );
   }
 }
