@@ -6,7 +6,7 @@ function StudCard({ name, text }) {
       <div className="card">{text}</div>
       <hr />
     </>
-  )
+  );
 }
 
-export default StudCard
+export default StudCard;

@@ -16,7 +16,7 @@ export default function NumberChecker(n) {
   };
   return (
     <div key={number} className="container__number">
-      {isPrime(number)}
+      {isPrime(number.n)}
     </div>
   );
 }

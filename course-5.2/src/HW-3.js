@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
 // import React from 'react'
 // import ReactDOM from 'react-dom'
 
@@ -16,7 +18,7 @@ function Book(props) {
       <p>{props.year}</p>
       <p>{props.price}</p>
     </div>
-  )
+  );
 }
 
 function Shelf() {
@@ -27,7 +29,7 @@ function Shelf() {
       <Book name="Vue for beginners" year="2021" price="1500" />
       <hr />
     </div>
-  )
+  );
 
   // React.createElement("div", {}, [
   //   React.createElement(
@@ -53,4 +55,4 @@ function Shelf() {
 
 //   rootElement
 // )
-export default Shelf
+export default Shelf;
