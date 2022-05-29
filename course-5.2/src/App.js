@@ -9,6 +9,7 @@ import BookCart from './components/BookCart';
 import Select from './components/Select';
 import LoginPass from './components/LoginPass';
 import NumberGenerator from './components/NumberGenerator';
+import HideAndSeekComponents from './components/SwitchComponent';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
       <Select />
       <LoginPass />
       <NumberGenerator />
+      <HideAndSeekComponents />
     </div>
   );
 }

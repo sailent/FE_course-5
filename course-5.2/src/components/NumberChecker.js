@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 
-export default function NumberChecker(n) {
-  const number = n;
+export default function NumberChecker({ n }) {
   const isPrime = (num) => {
     let color = 'red';
     if (num === 1) color = 'yellow';
@@ -15,12 +14,12 @@ export default function NumberChecker(n) {
     return <p className={color}>{num}</p>;
   };
   return (
-    <div key={number} className="container__number">
-      {isPrime(number.n)}
+    <div className="container__number">
+      {isPrime(n)}
     </div>
   );
 }
 
-NumberChecker.prototypes = {
+NumberChecker.propTypes = {
   n: PropTypes.number.isRequired,
 };
