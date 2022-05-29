@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 export default function CustomSelect() {
   const options = [
@@ -13,12 +13,12 @@ export default function CustomSelect() {
       description:
         'хотел использовать библиотеку Select, так там с Value хрен разберешься',
     },
-  ]
-  const [selectedOption, setSelectedOption] = useState(options[0].label)
+  ];
+  const [selectedOption, setSelectedOption] = useState(options[0].label);
 
   const handleChange = (e) => {
-    setSelectedOption(e.target.value)
-  }
+    setSelectedOption(e.target.value);
+  };
 
   return (
     <div>
@@ -32,5 +32,5 @@ export default function CustomSelect() {
         {options.filter((val) => val.label === selectedOption)[0].description}
       </p>
     </div>
-  )
+  );
 }

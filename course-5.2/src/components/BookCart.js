@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
-import MinMax from './MinMax'
-import MinMaxLazy from './MinMaxLazy'
-import ReqInput2 from './InputReq'
+import MinMax from './MinMax';
+import MinMaxLazy from './MinMaxLazy';
+import ReqInput2 from './InputReq';
 
 export function booksStub() {
   return [
@@ -47,37 +47,35 @@ export function booksStub() {
       quantity: 1,
       total: 400,
     },
-  ]
+  ];
 }
 
 export default function BookCart() {
-  const [books, setBooks] = useState(booksStub())
-  const [reqInput, setReq] = useState()
+  const [books, setBooks] = useState(booksStub());
+  const [reqInput, setReq] = useState();
 
   const setQuantity = (id, quantity, total) => {
     setBooks(
-      books.map((book) =>
-        book.id !== id
-          ? book
-          : {
-            ...book,
-            quantity,
-            total,
-          }
-      )
-    )
-  }
+      books.map((book) => (book.id !== id
+        ? book
+        : {
+          ...book,
+          quantity,
+          total,
+        })),
+    );
+  };
   const removeItem = (id) => {
-    setBooks(books.filter((obj) => obj.id !== id))
-  }
+    setBooks(books.filter((obj) => obj.id !== id));
+  };
 
   const useInputRequired = (required, e) => {
-    const val = e.target.value
+    const val = e.target.value;
     if (required && !val) {
-      setReq('это поле обязательно')
-      e.target.style.borderColor = 'red'
+      setReq('это поле обязательно');
+      e.target.style.borderColor = 'red';
     }
-  }
+  };
   return (
     <div className="some">
       <hr />
@@ -87,10 +85,7 @@ export default function BookCart() {
           <tr>
             <th>Total:</th>
             <th>
-              {books.reduce(
-                (prev, curr) => prev + curr.quantity * curr.price,
-                0
-              )}
+              {books.reduce((prev, curr) => prev + curr.quantity * curr.price, 0)}
               $
             </th>
           </tr>
@@ -107,14 +102,15 @@ export default function BookCart() {
             <tr key={book.id}>
               <td>{i + 1}</td>
               <td>{book.title}</td>
-              <td>{book.price}$</td>
+              <td>
+                {book.price}
+                $
+              </td>
               <td>
                 <MinMaxLazy
                   max={book.rest}
                   current={book.quantity}
-                  onChange={(quantity, total) =>
-                    setQuantity(book.id, quantity, total)
-                  }
+                  onChange={(quantity, total) => setQuantity(book.id, quantity, total)}
                   total={book.price * book.quantity}
                 />
               </td>
@@ -127,7 +123,10 @@ export default function BookCart() {
                   x
                 </button>
               </td>
-              <td>{book.quantity * book.price}$</td>
+              <td>
+                {book.quantity * book.price}
+                $
+              </td>
             </tr>
           ))}
         </tbody>
@@ -136,7 +135,8 @@ export default function BookCart() {
       <ReqInput2 />
       <div className="total">
         <h3>
-          Total amount:{' '}
+          Total amount:
+          {' '}
           {books.reduce((prev, curr) => prev + curr.quantity * curr.price, 0)}
         </h3>
         <h3>
@@ -147,14 +147,10 @@ export default function BookCart() {
       <Link to="/about">About Shop</Link>
       <Link to="/GeneralCart">General Cart</Link>
     </div>
-  )
+  );
 }
 
-
-
-
-
-/* 
+/*
 const setquantity = (id, quantity) => {
   const newbooks = [ ...books ];
   const productInd = books.findIndex(book => book.id == id);
