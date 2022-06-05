@@ -16,7 +16,7 @@ export default class ReacTimer extends React.Component {
     if (this.state.isCounting === true && !this.timer) {
       this.timer = setInterval(
         () => this.setState((prevState) => ({ count: prevState.count + 1 })),
-        1000
+        1000,
       );
     }
     if (this.state.isCounting === false && this.timer) {

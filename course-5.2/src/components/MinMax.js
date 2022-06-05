@@ -1,18 +1,21 @@
-function MinMax({ min = 0, max, current, onChange, total }) {
+/* eslint-disable react/prop-types */
+function MinMax({
+  min = 0, max, current, onChange, total,
+}) {
   // валидация инпута
   function applyCurrent(num) {
-    const validNum = Math.max(min, Math.min(max, num))
-    onChange(validNum, total)
+    const validNum = Math.max(min, Math.min(max, num));
+    onChange(validNum, total);
   }
 
   function parseCurrentStr(e) {
     // Прочти про parseInt ;) https://webformyself.com/chisla-v-javascript-funkciya-parseint/
-    const num = parseInt(e.target.value, 10)
-    applyCurrent(Number.isNaN(num) ? min : num)
+    const num = parseInt(e.target.value, 10);
+    applyCurrent(Number.isNaN(num) ? min : num);
   }
 
-  const inc = () => applyCurrent(current + 1)
-  const dec = () => applyCurrent(current - 1)
+  const inc = () => applyCurrent(current + 1);
+  const dec = () => applyCurrent(current - 1);
 
   return (
     <div>
@@ -24,7 +27,7 @@ function MinMax({ min = 0, max, current, onChange, total }) {
         +
       </button>
     </div>
-  )
+  );
 }
 
-export default MinMax
+export default MinMax;
