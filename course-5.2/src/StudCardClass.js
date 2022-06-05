@@ -1,14 +1,15 @@
-import React from 'react'
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
 
 export default class extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { current: 1 }
+    super(props);
+    this.state = { current: 1 };
   }
 
   increment = () => {
-    this.setState((prevState) => ({ current: prevState.current + 1 }))
-  }
+    this.setState((prevState) => ({ current: prevState.current + 1 }));
+  };
 
   render() {
     return (
@@ -18,7 +19,7 @@ export default class extends React.Component {
         </button>
         <span>{this.state.current}</span>
       </div>
-    )
+    );
   }
 }
 

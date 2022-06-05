@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import BookCart from './BookCart'
+import { Link } from 'react-router-dom';
+import BookCart from './BookCart';
 
 export default function GeneralCart() {
   return (
@@ -8,5 +8,5 @@ export default function GeneralCart() {
       <Link to="/about">About Shop</Link>
       <Link to="/">App</Link>
     </div>
-  )
+  );
 }

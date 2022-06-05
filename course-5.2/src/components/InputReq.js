@@ -1,9 +1,13 @@
-import useInputRequired from './ReqHook'
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+import useInputRequired from './ReqHook';
 
 export default function ReqInput2(props) {
-  const { value, error, handleBlur, handleChange } = useInputRequired(
-    props.value || ''
-  )
+  const {
+    value, error, handleBlur, handleChange,
+  } = useInputRequired(
+    props.value || '',
+  );
   return (
     <div>
       <input
@@ -13,5 +17,5 @@ export default function ReqInput2(props) {
       />
       {error.length > 0 && <div>{error}</div>}
     </div>
-  )
+  );
 }

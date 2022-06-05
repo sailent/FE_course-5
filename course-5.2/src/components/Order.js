@@ -1,9 +1,10 @@
-import React from 'react'
-import OrderDetail from './OrderDetail'
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
+import OrderDetail from './OrderDetail';
 
 export default class Order extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       amount: 0,
@@ -40,33 +41,33 @@ export default class Order extends React.Component {
           quantity: 0,
         },
       ],
-    }
+    };
   }
 
   IncrementQuantityWithPrice(index) {
-    const { details } = this.state
-    details[index].quantity += 1
-    this.setState({ details })
+    const { details } = this.state;
+    details[index].quantity += 1;
+    this.setState({ details });
     this.setState((prevState) => ({
       quantity: prevState.quantity + 1,
       amount: prevState.amount + details[index].price,
-    }))
+    }));
   }
 
   DecrementQuantityWithPrice(index) {
-    const { details } = this.state
+    const { details } = this.state;
     if (details[index].quantity) {
-      details[index].quantity -= 1
-      this.setState({ details })
+      details[index].quantity -= 1;
+      this.setState({ details });
       this.setState((prevState) => ({
         quantity: prevState.quantity - 1,
         amount: prevState.amount - details[index].price,
-      }))
+      }));
     }
   }
 
   render() {
-    const { details } = this.state
+    const { details } = this.state;
     return (
       <div className="order">
         {Object.keys(details).map((e) => (
@@ -75,22 +76,29 @@ export default class Order extends React.Component {
             productName={details[e].productName}
             price={details[e].price}
             quantity={details[e].quantity}
-            IncrementQuantityWithPrice={() =>
-              this.IncrementQuantityWithPrice(e)
-            }
-            DecrementQuantityWithPrice={() =>
-              this.DecrementQuantityWithPrice(e)
-            }
+            IncrementQuantityWithPrice={() => this.IncrementQuantityWithPrice(e)}
+            DecrementQuantityWithPrice={() => this.DecrementQuantityWithPrice(e)}
           />
         ))}
         <div className="clear" />
         <p className="total">
-          Total Quantity : <b> {this.state.quantity}</b>
+          Total Quantity :
+          {' '}
+          <b>
+            {' '}
+            {this.state.quantity}
+          </b>
         </p>
         <p className="total">
-          Total Price :<b> {this.state.amount}$ </b>
+          Total Price :
+          <b>
+            {' '}
+            {this.state.amount}
+            $
+            {' '}
+          </b>
         </p>
       </div>
-    )
+    );
   }
 }
