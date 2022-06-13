@@ -4,9 +4,11 @@ import { EmailContext } from '../context/UserInfo';
 export default function OrderReady() {
   const { email } = useContext(EmailContext);
   console.log(email);
+  console.log(useContext(EmailContext));
   return (
     <div>
-      <p>
+      123
+      {/* <p>
         Name:
         {email[0].name}
       </p>
@@ -15,7 +17,7 @@ export default function OrderReady() {
         {email[0].email}
       </p>
       <p>Count</p>
-      <p>Goods</p>
+      <p>Goods</p> */}
     </div>
   );
 }

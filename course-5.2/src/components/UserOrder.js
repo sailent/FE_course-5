@@ -4,15 +4,15 @@ import { useContext, useRef } from 'react';
 import { EmailContext } from '../context/UserInfo';
 
 export default function UserOrder() {
-  const userPhone = useRef(null);
+  const userName = useRef(null);
   const { email, setEmail } = useContext(EmailContext);
   const Send = () => {
-    const phone = userPhone.current.value;
-    setEmail((book) => (book.email === 'test@test.com'
-      ? book
+    const name = userName.current.value;
+    setEmail((e) => (e[0].name !== ''
+      ? e
       : {
-        ...book,
-        phone,
+        ...e[0],
+        name,
       }));
   };
   return (
@@ -26,11 +26,11 @@ export default function UserOrder() {
         </label>
         <label htmlFor="phone">
           Phone
-          <input id="phone" type="text" ref={userPhone} />
+          <input id="phone" type="text" />
         </label>
         <label htmlFor="name">
           Name
-          <input id="name" type="text" />
+          <input id="name" type="text" ref={userName} />
         </label>
       </div>
       <hr />
