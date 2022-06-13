@@ -136,7 +136,6 @@ export default function BookCart() {
       <div className="total">
         <h3>
           Total amount:
-          {' '}
           {books.reduce((prev, curr) => prev + curr.quantity * curr.price, 0)}
         </h3>
         <h3>

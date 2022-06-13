@@ -5,15 +5,18 @@ import { EmailContext } from '../context/UserInfo';
 
 export default function UserOrder() {
   const userName = useRef(null);
+  // eslint-disable-next-line no-unused-vars
   const { email, setEmail } = useContext(EmailContext);
   const Send = () => {
     const name = userName.current.value;
-    setEmail((e) => (e[0].name !== ''
-      ? e
-      : {
-        ...e[0],
-        name,
-      }));
+    setEmail(
+      email.map((e) => (e.name !== ''
+        ? e
+        : {
+          ...e,
+          name,
+        })),
+    );
   };
   return (
     <div>
@@ -30,7 +33,7 @@ export default function UserOrder() {
         </label>
         <label htmlFor="name">
           Name
-          <input id="name" type="text" ref={userName} />
+          <input id="name" type="text" ref={userName} defaultValue={email[0].name} />
         </label>
       </div>
       <hr />
