@@ -36,7 +36,7 @@ export default function BookCart() {
   }, [dispatch])
 
   useEffect(() => {
-    if(stub)setBooks(stub)
+    if (stub) setBooks(stub)
   }, [stub])
 
   return (
