@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="some"
+>
+  <hr />
+  <h1>
+    books list
+  </h1>
+  <table>
+    <tfoot>
+      <tr>
+        <th>
+          Total:
+        </th>
+        <th>
+          0
+          $
+        </th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <th>
+          #
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Remove
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="total"
+  >
+    <h3>
+      Total amount:
+      0
+    </h3>
+    <h3>
+      Total quantity:
+      0
+    </h3>
+  </div>
+</div>
+`;
