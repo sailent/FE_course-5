@@ -1,12 +1,12 @@
 /* eslint-disable import/no-cycle */
 import { Link } from 'react-router-dom';
 import { useContext, useRef } from 'react';
-import { EmailContext } from '../context/UserInfo';
+import { Context } from '../context/useContext';
 
 export default function UserOrder() {
   const userName = useRef(null);
   // eslint-disable-next-line no-unused-vars
-  const { email, setEmail } = useContext(EmailContext);
+  const { email, setEmail } = useContext(Context);
   const Send = () => {
     const name = userName.current.value;
     setEmail(

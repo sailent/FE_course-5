@@ -3,11 +3,13 @@ import React, {
   useEffect, useRef, useState, useContext,
 } from 'react';
 import { Link } from 'react-router-dom';
-import { EmailContext } from '../context/UserInfo';
+import { Context } from '../context/useContext';
+import Header from './Header';
+import Footer from './Footer';
 
 export default function LoginPass() {
-  const { email, setEmail } = useContext(EmailContext);
-  console.log(email, 'email');
+  const { context, setContext } = useContext(Context);
+  console.log(context, 'email');
 
   const [message, setMessage] = useState('');
   const [message2, setMessage2] = useState('');
@@ -48,7 +50,7 @@ export default function LoginPass() {
       ref2.current.style.border = '';
     }
     const userInfo = { email: ref1.current.value, name: '', phone: '' };
-    setEmail([userInfo]);
+    setContext([userInfo]);
   };
   useEffect(() => {
     ref1.current.value = 'test@test.com';
@@ -57,13 +59,15 @@ export default function LoginPass() {
 
   return (
     <div>
+      <Header />
       <input type="email" placeholder="Enter your email" ref={ref1} />
       <div>{message}</div>
       <input type="password" placeholder="Enter your password" ref={ref2} />
       <div>{message2}</div>
-      <Link to="/Order">
+      <Link to="/MainPage">
         <input type="button" value="Вход" onClick={signInAndFocus} />
       </Link>
+      <Footer />
     </div>
   );
 }
