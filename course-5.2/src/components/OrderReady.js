@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { EmailContext } from '../context/UserInfo';
+import { Context } from '../context/useContext';
 
 export default function OrderReady() {
-  const { email } = useContext(EmailContext);
+  const { email } = useContext(Context);
   return (
     <div>
       <p>

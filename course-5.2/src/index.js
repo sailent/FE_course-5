@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -10,12 +9,15 @@ import reportWebVitals from './reportWebVitals';
 import Order from './components/OrderFunc';
 import BookDesc from './components/BookDesc';
 import OrderReady from './components/OrderReady';
-import SetEmail from './context/UserInfo';
 import UserOrder from './components/UserOrder';
+import UseContext from './context/useContext';
+import MainPage from './components/MainPage';
+import EventPage from './components/EventPage';
+import TicketPage from './components/TicketPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <SetEmail>
+  <UseContext>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
@@ -25,10 +27,13 @@ root.render(
         <Route path="/BookDesc" element={<BookDesc />} />
         <Route path="/OrderReady" element={<OrderReady />} />
         <Route path="/UserOrder" element={<UserOrder />} />
+        <Route path="/MainPage" element={<MainPage />} />
+        <Route path="/EventPage" element={<EventPage />} />
+        <Route path="/TicketPage" element={<TicketPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  </SetEmail>,
+  </UseContext>,
 );
 
 // If you want to start measuring performance in your app, pass a function

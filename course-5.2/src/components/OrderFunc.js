@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { useContext, useState } from 'react';
 import OrderDetail from './OrderDetail';
-import { EmailContext } from '../context/UserInfo';
+import { Context } from '../context/useContext';
 
 export function booksStub() {
   return [
@@ -34,7 +34,7 @@ export function booksStub() {
 }
 
 export default function Order() {
-  const { email, setEmail } = useContext(EmailContext);
+  const { email, setEmail } = useContext(Context);
   console.log(email);
 
   const [books] = useState(booksStub());
